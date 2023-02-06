@@ -42,16 +42,16 @@ app.use("/api/post", PostRoutes);
 app.use("/api/student", StudentRoutes);
 
 // Listeners
-// mongoose.connect(
-//   "mongodb+srv://iiui:iiuiSecurePass@cluster0.ocib0am.mongodb.net/?retryWrites=true&w=majority",
-//   { useNewUrlParser: true },
-//   () => console.log("connected to DB")
-// );
 mongoose.connect(
-  "mongodb://localhost:27017/school-form",
+  "mongodb+srv://iiui:iiuiSecurePass@cluster0.ocib0am.mongodb.net/?retryWrites=true&w=majority",
   { useNewUrlParser: true },
   () => console.log("connected to DB")
 );
+
+// mongoose.connect("mongodb://localhost:27017/test", {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
 
 app.listen(process.env.PORT || 3000, () =>
   console.log("App running on port 3000")

@@ -11,12 +11,14 @@ export const createStudent = async (req, res) => {
       student.father.CNIC_No === req.father.CNIC_No
     ) {
       isUnique = true;
-      res.json("Already Registered");
+      res.json({ message: "Already Registered" });
     }
   });
 
   if (isUnique === false) {
-    const formId = `${req.body.student.father.CNIC_No.slice(-6)}`;
+    const formId = `${req.body.father.CNIC_No.slice(-5)}-${
+      req.body.student.class
+    }`;
     let student = new Student({ ...req.body, formId });
     await student.save();
     return res.json(student);
