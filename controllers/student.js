@@ -14,17 +14,13 @@ export const createStudent = async (req, res) => {
     }
   });
 
-  try {
-    if (isUnique === false) {
-      let student = new Student({ ...req.body });
+  if (isUnique === false) {
+    let student = new Student({ ...req.body });
 
-      await student.save();
-      return res.json(student);
-    } else {
-      return res.json({ message: "Student Already Registered" });
-    }
-  } catch (error) {
-    res.json(error);
+    await student.save();
+    return res.json(student);
+  } else {
+    return res.json({ message: "Student Already Registered" });
   }
 };
 
