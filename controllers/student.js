@@ -7,10 +7,11 @@ export const createStudent = async (req, res) => {
 
   students.forEach((student) => {
     if (
-      student.student.name === req.body.student.name ||
+      student.student.name === req.body.student.name &&
       student.father.name === req.father.name
     ) {
       isUnique = true;
+      res.json("Already Registered");
     }
   });
 
