@@ -3,7 +3,6 @@ import express from "express";
 import morgan from "morgan";
 import mongoose from "mongoose";
 import config from "config";
-import dotenv from "dotenv";
 import cors from "cors";
 import path from "path";
 
@@ -22,7 +21,6 @@ import { fileURLToPath } from "url";
 // }
 
 const app = express();
-dotenv.config();
 
 // Middleware
 app.use(express.json());

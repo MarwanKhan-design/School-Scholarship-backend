@@ -1,5 +1,4 @@
 import _ from "lodash";
-import { cloudinary } from "../helper/imageUpload.js";
 import Student from "../models/student.js";
 
 export const createStudent = async (req, res) => {
@@ -45,15 +44,10 @@ export const deleteStudent = async (req, res) => {
 
   res.send(student);
 };
-
 export const uploadImage = async (req, res) => {
   console.log(req.file.filename, req.body.studentId);
-  const result = cloudinary.uploader.upload(req.file.path, {
-    public_id: `${req.student._id}_profile`,
-    // crop: "fill",
+  const student = await Student.findByIdAndUpdate(req.body.studentId, {
+    image: req.file.filename,
   });
   res.json(student);
-  const student = await Student.findByIdAndUpdate(req.body.studentId, {
-    image: result.url,
-  });
 };
