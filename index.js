@@ -43,7 +43,7 @@ app.use("/api/student", StudentRoutes);
 
 // Listeners
 mongoose.connect(
-  "mongodb+srv://iiui:iiuiSecurePass@cluster0.oxv1ti7.mongodb.net/?retryWrites=true&w=majority",
+  "mongodb+srv://iiui:iiuiSecurePass@cluster0.v8njnqw.mongodb.net/?retryWrites=true&w=majority",
   { useNewUrlParser: true },
   () => console.log("connected to DB")
 );
