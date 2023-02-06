@@ -42,9 +42,9 @@ const studentSchema = mongoose.model(
   new mongoose.Schema({
     student: StudentSchema,
     father: ParentSchema,
-    mother: ParentSchema,
     siblings: [SiblingSchema],
     image: String,
+    formId: String,
   })
 );
 

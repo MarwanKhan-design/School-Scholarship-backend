@@ -42,8 +42,13 @@ app.use("/api/post", PostRoutes);
 app.use("/api/student", StudentRoutes);
 
 // Listeners
+// mongoose.connect(
+//   "mongodb+srv://iiui:iiuiSecurePass@cluster0.ocib0am.mongodb.net/?retryWrites=true&w=majority",
+//   { useNewUrlParser: true },
+//   () => console.log("connected to DB")
+// );
 mongoose.connect(
-  "mongodb+srv://iiui:iiuiSecurePass@cluster0.ocib0am.mongodb.net/?retryWrites=true&w=majority",
+  "mongodb://localhost:27017/school-form",
   { useNewUrlParser: true },
   () => console.log("connected to DB")
 );

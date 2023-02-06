@@ -8,7 +8,7 @@ export const createStudent = async (req, res) => {
   students.forEach((student) => {
     if (
       student.student.name === req.body.student.name &&
-      student.father.name === req.father.name
+      student.father.CNIC_No === req.father.CNIC_No
     ) {
       isUnique = true;
       res.json("Already Registered");
@@ -16,8 +16,8 @@ export const createStudent = async (req, res) => {
   });
 
   if (isUnique === false) {
-    let student = new Student({ ...req.body });
-
+    const formId = `${req.body.student.father.CNIC_No.slice(-6)}`;
+    let student = new Student({ ...req.body, formId });
     await student.save();
     return res.json(student);
   } else {
